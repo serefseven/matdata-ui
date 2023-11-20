@@ -47,7 +47,7 @@ const UserCreateForm: FC = (props) => {
     const [userGroups, setUserGroups] = useState<IUserGroupDtoApiResponse[]>([]);
     useEffect(() => {
         getUserGroups().then(r => setUserGroups(r.data));
-    }),[];
+    },[]);
 
     const submitForm = (values: ICreateUser, actions: FormikValues) => {
         setSubmitting(true)

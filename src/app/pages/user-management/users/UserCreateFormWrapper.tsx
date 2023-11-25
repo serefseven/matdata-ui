@@ -2,7 +2,7 @@
 import React, {FC, useEffect, useState} from 'react'
 import {useIntl} from "react-intl";
 import {ErrorMessage, Field, Form, Formik, FormikValues} from "formik";
-import {ICreateUser, IUserGroupDtoApiResponse, PassworSettingTypes} from "../core/_models";
+import {ICreateUser, IUserGroupDtoApiResponse, PassworSettingTypes, UserStatus, UserType} from "../core/_models";
 import * as Yup from 'yup'
 import {useNavigate, useParams} from "react-router-dom";
 import {PageLink, PageTitle} from "../../../../_metronic/layout/core";
@@ -25,6 +25,8 @@ const UserCreateForm: FC = (props) => {
         email: Yup.string().required(messageRequired).email(messageEmailFormat),
         userGroupId: Yup.number(),
         passwordSettingType: Yup.number().required(messageRequired).oneOf([0, 1], messageRequired),
+        type: Yup.number().required(messageRequired).oneOf([0, 1], messageRequired),
+        status: Yup.string()//.required(messageRequired).oneOf([0, 1], messageRequired),
     }
 
     const userFormSchemaPassword = {
@@ -40,7 +42,10 @@ const UserCreateForm: FC = (props) => {
         confirmPassword: '',
         passwordSettingType: -1,
         firstName: '',
-        lastName: ''
+        lastName: '',
+        type: UserType.CLIENT,
+        status: UserStatus.ACTIVE
+
     })
     const [isSubmitting, setSubmitting] = useState(false);
 
@@ -135,6 +140,29 @@ const UserCreateForm: FC = (props) => {
 
                             <div className='fv-row mb-10'>
                                 <label
+                                    className='form-label required'>{intl.formatMessage({id: 'USER_FORM.ACCOUNT_TYPE'})}</label>
+
+                                <Field
+                                    component='select'
+                                    name='type'
+                                    className='form-select form-select-lg form-select-solid'
+
+                                >
+                                    {
+                                        Object.keys(UserType)
+                                            .filter((v) => isNaN(Number(v)))
+                                            .map(t => <option key={UserType[t]}
+                                                              value={UserType[t]}>{intl.formatMessage({id: 'USER_FORM.ACCOUNT_TYPE.' + t})}</option>)
+                                    }
+
+                                </Field>
+                                <div className='text-danger mt-2'>
+                                    <ErrorMessage name='type'/>
+                                </div>
+                            </div>
+
+                            <div className='fv-row mb-10'>
+                                <label
                                     className='form-label required'>{intl.formatMessage({id: 'USER_FORM.USERGROUP'})}</label>
 
                                 <Field
@@ -205,6 +233,29 @@ const UserCreateForm: FC = (props) => {
                                     </div>
                                 </div>
                             </> : null}
+
+                            <div className='fv-row mb-10'>
+                                <label
+                                    className='form-label required'>{intl.formatMessage({id: 'USER_FORM.STATUS'})}</label>
+
+                                <Field
+                                    component='select'
+                                    name='status'
+                                    className='form-select form-select-lg form-select-solid'
+
+                                >
+                                    {
+                                        Object.keys(UserStatus)
+                                            .filter((v) => isNaN(Number(v)))
+                                            .map(t => <option key={UserStatus[t]}
+                                                              value={UserStatus[t]}>{intl.formatMessage({id: 'USER_FORM.STATUS.' + t})}</option>)
+                                    }
+
+                                </Field>
+                                <div className='text-danger mt-2'>
+                                    <ErrorMessage name='status'/>
+                                </div>
+                            </div>
 
                             <div className='text-center pt-15'>
                                 <button

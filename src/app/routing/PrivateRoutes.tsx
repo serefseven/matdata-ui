@@ -8,9 +8,11 @@ import {WithChildren} from '../../_metronic/helpers'
 import UserManagementPage from "../pages/user-management/UserManagementPage";
 import {DashboardWrapper} from "../pages/dashboard/DashboardWrapper";
 import MatdataPage from "../pages/mat-data/MatdataPage";
+import {useAuth} from "../modules/auth";
+import AccountPage from "../modules/accounts/AccountPage";
 
 const PrivateRoutes = () => {
-
+    const {currentUser} = useAuth()
     return (
         <Routes>
             <Route element={<MasterLayout/>}>
@@ -19,25 +21,35 @@ const PrivateRoutes = () => {
                 {/* Pages */}
                 <Route path='dashboard' element={<DashboardWrapper/>}/>
 
-                {/* Lazy Modules */}
                 <Route
-                    path='user-management/*'
+                    path='/account/*'
                     element={
                         <SuspensedView>
-                            <UserManagementPage/>
+                            <AccountPage />
                         </SuspensedView>
                     }
                 />
 
-                <Route
-                    path='*'
-                    element={
-                        <SuspensedView>
-                            <MatdataPage/>
-                        </SuspensedView>
-                    }
-                />
+                {currentUser?.type === 1 ? (<>
+                    {/* Lazy Modules */}
+                    <Route
+                        path='user-management/*'
+                        element={
+                            <SuspensedView>
+                                <UserManagementPage/>
+                            </SuspensedView>
+                        }
+                    />
 
+                    <Route
+                        path='*'
+                        element={
+                            <SuspensedView>
+                                <MatdataPage/>
+                            </SuspensedView>
+                        }
+                    />
+                </>) : (null)}
 
                 {/* Page Not Found */}
                 <Route path='*' element={<Navigate to='/error/404'/>}/>

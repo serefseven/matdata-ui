@@ -2,7 +2,7 @@ import {PageLink, PageTitle} from "../../../../_metronic/layout/core";
 import {KTIcon} from '../../../../_metronic/helpers'
 import React, {useEffect, useState} from "react";
 import {deleteUserById, getUsers} from "../core/_requests";
-import {IUserDtoApiResponse} from "../core/_models";
+import {IUserDtoApiResponse, UserStatus} from "../core/_models";
 import {useIntl} from "react-intl";
 import {Link} from "react-router-dom";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
@@ -119,8 +119,8 @@ const UserPage = () => {
                                                     <div className="symbol symbol-45px me-5">
                                                         <span
                                                             className={"symbol-label fw-bold "
-                                                                +(u.status.toString() === 'ACTIVE'?"bg-light-success text-success":"")
-                                                                +(u.status.toString() === 'DEACTIVE'?"bg-light-danger text-danger":"")}>
+                                                                +(u.status === UserStatus.ACTIVE?"bg-light-success text-success":"")
+                                                                +(u.status === UserStatus.DEACTIVE?"bg-light-danger text-danger":"")}>
                                                             {u.firstName[0].toUpperCase() + u.lastName[0].toUpperCase() }
                                                         </span>
                                                     </div>

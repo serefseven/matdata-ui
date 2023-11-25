@@ -2,14 +2,14 @@
 import React, {FC, useEffect, useState} from 'react'
 import {useIntl} from "react-intl";
 import {ErrorMessage, Field, Form, Formik, FormikValues} from "formik";
-import {IUpdateUser, IUserGroupDtoApiResponse} from "../core/_models";
+import {IUpdateUser, IUserGroupDtoApiResponse, UserStatus, UserType} from "../core/_models";
 import * as Yup from 'yup'
 import {useNavigate, useParams} from "react-router-dom";
 import {PageLink, PageTitle} from "../../../../_metronic/layout/core";
 import {getUserById, getUserGroups, updateUser} from "../core/_requests";
 import {toast} from 'react-toastify';
 
-const UserEditForm: FC = (props) => {
+    const UserEditForm: FC = (props) => {
     const intl = useIntl();
     const params = useParams();
     const navigate = useNavigate();
@@ -23,19 +23,21 @@ const UserEditForm: FC = (props) => {
         lastName: Yup.string().required(messageRequired),
         email: Yup.string().required(messageRequired).email(messageEmailFormat),
         userGroupId: Yup.number(),
+        type: Yup.number().required(messageRequired).oneOf([0, 1], messageRequired),
+        status: Yup.number().required(messageRequired).oneOf([0, 1], messageRequired),
     }
 
 
     const [userFormSchema, setUserFormSchema] = useState(Yup.object(userFormSchemaInitial));
 
-    const [initValues, setInitialValues] = useState<IUpdateUser>({id: -1, firstName: '', lastName: '', email: ''})
+    const [initValues, setInitialValues] = useState<IUpdateUser>({id: -1, firstName: '', lastName: '', email: '', type:UserType.CLIENT, status: UserStatus.ACTIVE})
     const [isSubmitting, setSubmitting] = useState(false);
 
     const [userGroups, setUserGroups] = useState<IUserGroupDtoApiResponse[]>([]);
 
     useEffect(() => {
         getUserGroups().then(r => setUserGroups(r.data));
-    },[]);
+    }, []);
 
     useEffect(() => {
         if (params.userId != null) {
@@ -45,7 +47,9 @@ const UserEditForm: FC = (props) => {
                     firstName: r.data.firstName,
                     id: r.data.id,
                     lastName: r.data.lastName,
-                    userGroupId: r.data.userGroupId!=null?r.data.userGroupId:-1
+                    userGroupId: r.data.userGroupId != null ? r.data.userGroupId : -1,
+                    type: r.data.type,
+                    status: r.data.status
                 });
             }).catch(reason => {
                 if (reason.response.data.error.message) {
@@ -142,6 +146,29 @@ const UserEditForm: FC = (props) => {
 
                             <div className='fv-row mb-10'>
                                 <label
+                                    className='form-label required'>{intl.formatMessage({id: 'USER_FORM.ACCOUNT_TYPE'})}</label>
+
+                                <Field
+                                    component='select'
+                                    name='type'
+                                    className='form-select form-select-lg form-select-solid'
+
+                                >
+                                    {
+                                        Object.keys(UserType)
+                                            .filter((v) => isNaN(Number(v)))
+                                            .map(t => <option key={UserType[t]}
+                                                              value={UserType[t]}>{intl.formatMessage({id: 'USER_FORM.ACCOUNT_TYPE.' + t})}</option>)
+                                    }
+
+                                </Field>
+                                <div className='text-danger mt-2'>
+                                    <ErrorMessage name='type'/>
+                                </div>
+                            </div>
+
+                            <div className='fv-row mb-10'>
+                                <label
                                     className='form-label required'>{intl.formatMessage({id: 'USER_FORM.USERGROUP'})}</label>
 
                                 <Field
@@ -163,6 +190,25 @@ const UserEditForm: FC = (props) => {
                                 </div>
                             </div>
 
+                            <div className='fv-row mb-10'>
+                                <label
+                                    className='form-label required'>{intl.formatMessage({id: 'USER_FORM.STATUS'})}</label>
+                                <Field
+                                    component='select'
+                                    name='status'
+                                    className='form-select form-select-lg form-select-solid'
+                                >
+                                    {
+                                        Object.keys(UserStatus)
+                                            .filter((v) => isNaN(Number(v)))
+                                            .map(t => <option key={UserStatus[t]}
+                                                              value={UserStatus[t]}>{intl.formatMessage({id: 'USER_FORM.STATUS.' + t})}</option>)
+                                    }
+                                </Field>
+                                <div className='text-danger mt-2'>
+                                    <ErrorMessage name='status'/>
+                                </div>
+                            </div>
 
                             <div className='text-center pt-15'>
                                 <button

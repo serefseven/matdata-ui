@@ -137,10 +137,10 @@ const ApplicationFormModal: FC<Props> = (props) => {
                         <div className='fv-row mb-10'>
                             <div className="form-check form-switch form-check-custom form-check-solid">
                                 <Field name='active' id="active" type='checkbox' className='form-check-input'/>
-                            <label className="form-check-label">
-                                {intl.formatMessage({id: 'APPLICATION_FORM.ACTIVE'})}
-                            </label>
-                        </div>
+                                <label className="form-check-label">
+                                    {intl.formatMessage({id: 'APPLICATION_FORM.ACTIVE'})}
+                                </label>
+                            </div>
 
                         </div>
 

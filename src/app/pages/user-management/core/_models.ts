@@ -8,10 +8,11 @@ export interface IUserDtoApiResponse {
     lastName: string;
     status: UserStatus;
     userGroupId?: number;
+    type?: number;
 }
 
 export enum UserStatus{
-    ACTIVE, WAITING_ACTIVATION, DEACTIVE
+    ACTIVE, DEACTIVE
 }
 
 export interface ICreateUser {
@@ -22,6 +23,8 @@ export interface ICreateUser {
     firstName?: string;
     lastName?: string;
     userGroupId?: number;
+    type?: UserType;
+    status?: UserStatus;
 
 }
 export interface IUpdateUser {
@@ -30,10 +33,16 @@ export interface IUpdateUser {
     firstName?: string;
     lastName?: string;
     userGroupId?: number;
+    type?: UserType;
+    status?: UserStatus;
 }
 
 export enum PassworSettingTypes{
     CHOOSE_YOUR_OWN, SEND_EMAIL_RANDOM_PASSWORD
+}
+
+export enum UserType{
+    CLIENT, ADMIN
 }
 
 

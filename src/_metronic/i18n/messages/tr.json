@@ -25,8 +25,8 @@
   "MENU.APPLICATIONS": "Uygulamalar",
   "MENU.USERGROUPS": "Kullanıcı Grupları",
 
-  "USER.STATUS.ACTIVE": "Aktif",
-  "USER.STATUS.DEACTIVE": "Pasif",
+  "USER.STATUS.0": "Aktif",
+  "USER.STATUS.1": "Pasif",
 
   "USER_LIST.TITLE": "Kullanıcı Listesi",
   "USER_LIST.TITLE_TOTAL_COUNT": "Toplam {count} kullanıcı",
@@ -39,12 +39,18 @@
   "USER_FORM.FIRST_NAME": "Adı",
   "USER_FORM.LAST_NAME": "Soyadı",
   "USER_FORM.E_MAIL": "E-mail",
+  "USER_FORM.ACCOUNT_TYPE": "Hesap Türü",
+  "USER_FORM.ACCOUNT_TYPE.CLIENT": "Müşteri",
+  "USER_FORM.ACCOUNT_TYPE.ADMIN": "Yönetici",
   "USER_FORM.USERGROUP": "Kullanıcı Grubu",
   "USER_FORM.PASSWORD_DEFINITION_TYPE": "Parola Belirleme Türü",
   "USER_FORM.PASSWORD_DEFINITION_TYPE.CHOOSE_YOUR_OWN": "Kendin Belirle",
   "USER_FORM.PASSWORD_DEFINITION_TYPE.SEND_EMAIL_RANDOM_PASSWORD": "E-mail'e rastgele parola gönder",
   "USER_FORM.PASSWORD": "Parola",
   "USER_FORM.PASSWORD_CONFIRM": "Parola Doğrula",
+  "USER_FORM.STATUS": "Durum",
+  "USER_FORM.STATUS.ACTIVE": "Aktif",
+  "USER_FORM.STATUS.DEACTIVE": "Pasif",
   "USER_FORM.SUBMIT": "Kaydet",
   "USER_FORM.DISCARD": "Vazgeç",
 
@@ -87,7 +93,6 @@
   "DASHBOARD.BUTTON_PROCESS": "İşlemi Başlat",
 
   "USER_MENU.ACCOUNT": "Hesap",
-  "USER_MENU.SUBSCRIPTION": "Abonelik",
   "USER_MENU.LANGUAGE": "Dil",
   "USER_MENU.SIGN_OUT": "Çıkış",
 
@@ -104,6 +109,32 @@
   "FORGET_PASSWORD_PAGE.SUBMIT": "Gönder",
   "FORGET_PASSWORD_PAGE.CANCEL": "Vazgeç",
 
+  "RESET_PASSWORD_PAGE.TITLE": "Yeni Parola Belirle",
+  "RESET_PASSWORD_PAGE.PASSWORD": "Parola",
+  "RESET_PASSWORD_PAGE.CONFIRM_PASSWORD": "Parola Doğrula",
+  "RESET_PASSWORD_PAGE.SUBMIT": "Gönder",
+  "RESET_PASSWORD_PAGE.CANCEL": "Vazgeç",
+  "RESET_PASSWORD_PAGE.INVALID_TOKEN": "Bağlantı geçersiz ya da zaman aşımına uğramış",
+  "RESET_PASSWORD_PAGE.SUCCESS": "Parolanız başarıyla değiştirildi",
+
+
+  "ACCOUNT.OVERVIEW": "Genel Görünüm",
+  "ACCOUNT.EDITING": "Düzenle",
+  "ACCOUNT.PROFILE_DETAILS": "Hesap Bilgileri",
+  "ACCOUNT.FULL_NAME": "Adı Soyadı",
+  "ACCOUNT.FIRST_NAME": "Adı",
+  "ACCOUNT.LAST_NAME": "Soyadı",
+  "ACCOUNT.EMAIL": "E-mail",
+  "ACCOUNT.USER_GROUP": "Kullanıcı Grubu",
+  "ACCOUNT.SUBMIT": "Kaydet",
+  "ACCOUNT.BACK": "Geri",
+  "ACCOUNT.SECURITY": "Güvenlik",
+  "ACCOUNT.PASSWORD": "Parola",
+  "ACCOUNT.NEW_PASSWORD": "Yeni Parola",
+  "ACCOUNT.CURRENT_PASSWORD": "Kullanılan Parola",
+  "ACCOUNT.CONFIRM_PASSWORD": "Parola Doğrula",
+  "ACCOUNT.CHANGE_PASSWORD": "Parola Değiştir",
+  "ACCOUNT.CANCEL": "İptal",
 
   "": ""
 }

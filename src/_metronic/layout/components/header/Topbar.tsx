@@ -28,9 +28,9 @@ const Topbar: FC = () => {
 
 
         {/* begin::Theme mode */}
-        <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
+        {/*<div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
           <ThemeModeSwitcher toggleBtnClass={toolbarButtonHeightClass} />
-        </div>
+        </div>*/}
         {/* end::Theme mode */}
 
         {/* begin::User */}

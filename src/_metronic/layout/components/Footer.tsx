@@ -14,7 +14,7 @@ const Footer: FC = () => {
         <div className='text-dark order-2 order-md-1'>
           <span className='text-muted fw-semibold me-2'>{new Date().getFullYear()} &copy;</span>
           <a href='#' className='text-gray-800 text-hover-primary'>
-            Logicpeaks
+            Mat-Data
           </a>
         </div>
         {/* end::Copyright */}

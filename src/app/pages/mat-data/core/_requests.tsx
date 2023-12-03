@@ -55,10 +55,10 @@ export function getFileById(id: any) {
     return axios.get<IFileDtoApiResponse>(FILE_URL + "/" + id);
 }
 
-export function createFile(file: IInsertFile) {
+export function createFile(name: string, file:any) {
     var bodyFormData = new FormData();
-    bodyFormData.append("name",file.name);
-    bodyFormData.append("file",file.file);
+    bodyFormData.append("name",name);
+    bodyFormData.append("file",file);
     return axios.post<IFileDtoApiResponse>(FILE_URL, bodyFormData);
 }
 

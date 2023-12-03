@@ -62,7 +62,6 @@ export interface IUpsertUserGroupRequest {
     id?: number;
     name: string;
     endDate: any;
-    lastName?: string;
     applicationIds: number[];
     active: boolean;
 }

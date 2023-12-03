@@ -44,7 +44,13 @@ const UserGroupFormModal: FC<Props> = (props) => {
     useEffect(() => {
         if (id != undefined) {
             getUserGroupById(id).then(r => {
-                setInitialValues(r.data);
+                setInitialValues({
+                    active: r.data.active,
+                    applicationIds: r.data.applicationIds,
+                    endDate: new Date(r.data.endDate),
+                    id: r.data.id,
+                    name: r.data.name
+                });
             }).catch(reason => {
                 if (reason.response.data.error.message) {
                     toast.error(reason.response.data.error.message);

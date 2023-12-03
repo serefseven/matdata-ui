@@ -142,7 +142,7 @@ const ApplicationFormModal: FC<Props> = (props) => {
                         </div>
                         <div className='fv-row mb-10'>
                             <label
-                                className='form-label required'>{intl.formatMessage({id: 'APPLICATION_FORM.TEMPLATE'})}</label>
+                                className='form-label'>{intl.formatMessage({id: 'APPLICATION_FORM.TEMPLATE'})}</label>
 
                             <Field
                                 component='select'

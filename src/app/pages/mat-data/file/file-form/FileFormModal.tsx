@@ -56,8 +56,8 @@ const FileFormModal: FC<Props> = (props) => {
 
     const submitForm = (values: IInsertFile, actions: FormikValues) => {
         setSubmitting(true)
-        values['file'] = selectedFile;
-        const apiCall = values.id == undefined ? createFile(values) : updateFile(values);
+
+        const apiCall = values.id == undefined ? createFile(values.name,selectedFile) : updateFile(values);
         apiCall.then(r => {
             toast.success(intl.formatMessage({id: 'MESSAGE.API_SUCCESS'}));
             setModalShow(false);
@@ -124,8 +124,7 @@ const FileFormModal: FC<Props> = (props) => {
                                     <Field name='file'
                                            type='file'
                                            onChange={(event) => {
-                                               setFieldValue("file",
-                                                   event.currentTarget.files.length > 0 ? event.currentTarget.files[0] : null);
+                                               setSelectedFile(event.currentTarget.files.length>0?event.currentTarget.files[0]:null);
                                            }}
                                            placeholder={intl.formatMessage({id: 'FILE_FORM.FILE'})}
                                            className='form-control form-control-lg form-control-solid'/>

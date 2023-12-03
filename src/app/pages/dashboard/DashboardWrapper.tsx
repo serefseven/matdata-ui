@@ -6,10 +6,14 @@ import {useEffect, useState} from "react";
 import {IApplicationDtoApiResponse} from "../mat-data/core/_models";
 import download from 'js-file-download';
 
+const API_URL = process.env.REACT_APP_SECURITY_SERVICE_API_URL;
+export const FILE_URL = `${API_URL}/file/load/`;
 const DashboardPage = () => {
     const intl = useIntl()
     const [apps, setApps] = useState<IApplicationDtoApiResponse[]>([]);
     const [selectedFiles, setSelectedFiles] = useState<{id:number,file:any}[]>([]);
+
+
 
     useEffect(() => {
         getAccountApplications().then(r => setApps(r.data));
@@ -41,7 +45,9 @@ const DashboardPage = () => {
             return;
 
         processApp(app.file, id).then(r => {
-            download(r.data, "response.txt");
+            console.log(r.headers);
+            console.log(r.headers['x-file-name']);
+            download(r.data, r.headers['x-file-name']);
         })
     }
 
@@ -83,7 +89,14 @@ const DashboardPage = () => {
                                                 </div>
 
                                                 <div className="d-flex flex-column mt-auto bd-highlight">
-                                                    <button className="btn btn-light-success"
+                                                    {a.templateId!=undefined?
+                                                    <a href={FILE_URL+a.templateId}
+                                                        className="btn btn-light-warning" target="_blank">
+                                                        <i className="bi bi-upload fs-4 me-2"></i>
+                                                        {intl.formatMessage({id: 'DASHBOARD.DOWNLOAD_TEMPLATE'})}
+                                                    </a>
+                                                        : null}
+                                                    <button className="btn btn-light-success mt-2"
                                                             onClick={()=>openChooseFile(a.id)}>
                                                         <i className="bi bi-upload fs-4 me-2"></i>
                                                         {intl.formatMessage({id: 'DASHBOARD.BUTTON_CHOOSE_FILE'})}

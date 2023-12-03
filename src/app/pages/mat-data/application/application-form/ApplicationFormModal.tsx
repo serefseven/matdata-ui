@@ -4,8 +4,8 @@ import {ErrorMessage, Field, Form, Formik, FormikValues} from "formik";
 import * as Yup from "yup";
 import {useIntl} from "react-intl";
 import {toast} from "react-toastify";
-import {IUpsertApplication} from "../../core/_models";
-import {createApplication, getApplicationById, updateApplication} from "../../core/_requests";
+import {IFileDtoApiResponse, IUpsertApplication} from "../../core/_models";
+import {createApplication, getApplicationById, getFiles, updateApplication} from "../../core/_requests";
 
 type Props = {
     show: any[];
@@ -23,6 +23,7 @@ const ApplicationFormModal: FC<Props> = (props) => {
         description: Yup.string(),
         acceptedExtensions: Yup.string().required(messageRequired),
         url: Yup.string().required(messageRequired),
+        templateId: Yup.number(),
         active: Yup.boolean(),
     });
 
@@ -33,11 +34,16 @@ const ApplicationFormModal: FC<Props> = (props) => {
         url: ""
     })
     const [isSubmitting, setSubmitting] = useState(false);
+    const [files, setFiles] = useState<IFileDtoApiResponse[]>([]);
 
     useEffect(() => {
         if(!modalShow){
             clearForm();
         }
+    },[modalShow])
+
+    useEffect(() => {
+        getFiles().then(r => setFiles(r.data));
     },[modalShow])
 
     useEffect(() => {
@@ -132,6 +138,28 @@ const ApplicationFormModal: FC<Props> = (props) => {
                                    className='form-control form-control-lg form-control-solid'/>
                             <div className='text-danger mt-2'>
                                 <ErrorMessage name='url'/>
+                            </div>
+                        </div>
+                        <div className='fv-row mb-10'>
+                            <label
+                                className='form-label required'>{intl.formatMessage({id: 'APPLICATION_FORM.TEMPLATE'})}</label>
+
+                            <Field
+                                component='select'
+                                name='templateId'
+                                className='form-select form-select-lg form-select-solid'
+
+                            >
+                                <option></option>
+                                {
+                                    files
+                                        .map(t => <option key={t.id}
+                                                          value={t.id}>{t.name}</option>)
+                                }
+
+                            </Field>
+                            <div className='text-danger mt-2'>
+                                <ErrorMessage name='templateId'/>
                             </div>
                         </div>
                         <div className='fv-row mb-10'>

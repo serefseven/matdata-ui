@@ -14,6 +14,7 @@
 
   "QUESTION.DELETE_USERGROUP": "Are you sure you want to delete the user group?",
   "QUESTION.DELETE_APPLICATION": "Are you sure you want to delete the application?",
+  "QUESTION.DELETE_FILE": "Are you sure you want to delete the file?",
   "QUESTION.DELETE_USER": "Are you sure you want to delete the user?",
   "QUESTION.BUTTON.YES": "Yes",
   "QUESTION.BUTTON.NO": "No",
@@ -24,6 +25,7 @@
   "MENU.ROLES": "Roles",
   "MENU.APPLICATIONS": "Applications",
   "MENU.USERGROUPS": "User Groups",
+  "MENU.FILES": "Files",
 
   "USER.STATUS.0": "Active",
   "USER.STATUS.1": "Inactive",
@@ -31,7 +33,7 @@
   "USER_LIST.TITLE": "User List",
   "USER_LIST.TITLE_TOTAL_COUNT": "Total {count} users",
   "USER_LIST.NEW_USER": "New User",
-  "USER_LIST.NAME": "Name",
+  "USER_LIST.NAME": "Full Name",
   "USER_LIST.EMAIL": "Email",
   "USER_LIST.PACKAGE": "Package",
 
@@ -45,7 +47,7 @@
   "USER_FORM.USERGROUP": "User Group",
   "USER_FORM.PASSWORD_DEFINITION_TYPE": "Password Definition Type",
   "USER_FORM.PASSWORD_DEFINITION_TYPE.CHOOSE_YOUR_OWN": "Choose Your Own",
-  "USER_FORM.PASSWORD_DEFINITION_TYPE.SEND_EMAIL_RANDOM_PASSWORD": "Send Random Password via Email",
+  "USER_FORM.PASSWORD_DEFINITION_TYPE.SEND_EMAIL_RANDOM_PASSWORD": "Send Email with Random Password",
   "USER_FORM.PASSWORD": "Password",
   "USER_FORM.PASSWORD_CONFIRM": "Confirm Password",
   "USER_FORM.STATUS": "Status",
@@ -56,7 +58,7 @@
 
   "APPLICATION_LIST.TITLE": "Application List",
   "APPLICATION_LIST.TITLE_TOTAL_COUNT": "Total {count} applications",
-  "APPLICATION_LIST.NEW_APPLICATION": "New Application",
+  "APPLICATION_LIST.NEW_APPLICATION": "New application",
   "APPLICATION_LIST.NAME": "Application Name",
   "APPLICATION_LIST.EXTENSION": "Extensions",
   "APPLICATION_LIST.STATUS": "Status",
@@ -68,9 +70,23 @@
   "APPLICATION_FORM.DESCRIPTION": "Description",
   "APPLICATION_FORM.ACCEPTED_EXTENSIONS": "Accepted File Extensions",
   "APPLICATION_FORM.URL": "URL",
+  "APPLICATION_FORM.TEMPLATE": "Template",
   "APPLICATION_FORM.ACTIVE": "Active",
   "APPLICATION_FORM.SUBMIT": "Save",
   "APPLICATION_FORM.DISCARD": "Discard",
+
+  "FILE_LIST.TITLE": "File List",
+  "FILE_LIST.TITLE_TOTAL_COUNT": "Total {count} files",
+  "FILE_LIST.NEW_FILE": "New file",
+  "FILE_LIST.NAME": "File Name",
+  "FILE_LIST.ORIGINAL_FILE_NAME": "Original File Name",
+  "FILE_LIST.FILE_TYPE": "File Type",
+
+  "FILE_FORM.TITLE": "File Form",
+  "FILE_FORM.NAME": "File Name",
+  "FILE_FORM.FILE": "File",
+  "FILE_FORM.SUBMIT": "Save",
+  "FILE_FORM.DISCARD": "Discard",
 
   "USERGROUP_LIST.TITLE": "User Group List",
   "USERGROUP_LIST.TITLE_TOTAL_COUNT": "Total {count} user groups",
@@ -89,6 +105,7 @@
   "USERGROUP_FORM.SUBMIT": "Save",
   "USERGROUP_FORM.DISCARD": "Discard",
 
+  "DASHBOARD.DOWNLOAD_TEMPLATE": "Download Template",
   "DASHBOARD.BUTTON_CHOOSE_FILE": "Choose File",
   "DASHBOARD.BUTTON_PROCESS": "Start Process",
 
@@ -114,7 +131,7 @@
   "RESET_PASSWORD_PAGE.CONFIRM_PASSWORD": "Confirm Password",
   "RESET_PASSWORD_PAGE.SUBMIT": "Submit",
   "RESET_PASSWORD_PAGE.CANCEL": "Cancel",
-  "RESET_PASSWORD_PAGE.INVALID_TOKEN": "Invalid or expired link",
+  "RESET_PASSWORD_PAGE.INVALID_TOKEN": "The link is invalid or has expired",
   "RESET_PASSWORD_PAGE.SUCCESS": "Your password has been successfully changed",
 
   "ACCOUNT.OVERVIEW": "Overview",

@@ -7,6 +7,7 @@ export interface IApplicationDtoApiResponse {
     acceptedExtensions: string;
     url: string;
     active: boolean;
+    templateId?: number;
 }
 
 
@@ -17,5 +18,20 @@ export interface IUpsertApplication {
     acceptedExtensions: string;
     url: string;
     active?: boolean;
+    templateId?: number;
+
+}
+
+export interface IFileDtoApiResponse {
+    id: number;
+    name: string;
+    type: string;
+    fileName: string;
+}
+
+export interface IInsertFile {
+    id?: number;
+    name: string;
+    file?: any;
 
 }

@@ -14,6 +14,7 @@
 
   "QUESTION.DELETE_USERGROUP": "Kullanıcı Grubunu silmek istediğinizden emin misiniz?",
   "QUESTION.DELETE_APPLICATION": "Uygulamayı silmek istediğinizden emin misiniz?",
+  "QUESTION.DELETE_FILE": "Dosyayı silmek istediğinizden emin misiniz?",
   "QUESTION.DELETE_USER": "Kullanıcıyı silmek istediğinizden emin misiniz?",
   "QUESTION.BUTTON.YES": "Evet",
   "QUESTION.BUTTON.NO": "Hayır",
@@ -24,6 +25,7 @@
   "MENU.ROLES": "Roller",
   "MENU.APPLICATIONS": "Uygulamalar",
   "MENU.USERGROUPS": "Kullanıcı Grupları",
+  "MENU.FILES": "Dosyalar",
 
   "USER.STATUS.0": "Aktif",
   "USER.STATUS.1": "Pasif",
@@ -68,9 +70,23 @@
   "APPLICATION_FORM.DESCRIPTION": "Açıklama",
   "APPLICATION_FORM.ACCEPTED_EXTENSIONS": "Kabul Edilen Dosya Uzantıları",
   "APPLICATION_FORM.URL": "URL",
+  "APPLICATION_FORM.TEMPLATE": "Şablon",
   "APPLICATION_FORM.ACTIVE": "Aktif",
   "APPLICATION_FORM.SUBMIT": "Kaydet",
   "APPLICATION_FORM.DISCARD": "Vazgeç",
+
+  "FILE_LIST.TITLE": "Dosya Listesi",
+  "FILE_LIST.TITLE_TOTAL_COUNT": "Toplam {count} dosya",
+  "FILE_LIST.NEW_FILE": "Yeni dosya",
+  "FILE_LIST.NAME": "Dosya Adı",
+  "FILE_LIST.ORIGINAL_FILE_NAME": "Orijinal Dosya Adı",
+  "FILE_LIST.FILE_TYPE": "Dosya Tipi",
+
+  "FILE_FORM.TITLE": "Dosya Formu",
+  "FILE_FORM.NAME": "Dosya Adı",
+  "FILE_FORM.FILE": "Dosya",
+  "FILE_FORM.SUBMIT": "Kaydet",
+  "FILE_FORM.DISCARD": "Vazgeç",
 
   "USERGROUP_LIST.TITLE": "Kullanıcı Grupları Listesi",
   "USERGROUP_LIST.TITLE_TOTAL_COUNT": "Toplam {count} kullanıcı grubu",
@@ -89,6 +105,7 @@
   "USERGROUP_FORM.SUBMIT": "Kaydet",
   "USERGROUP_FORM.DISCARD": "Vazgeç",
 
+  "DASHBOARD.DOWNLOAD_TEMPLATE": "Şablon İndir",
   "DASHBOARD.BUTTON_CHOOSE_FILE": "Dosya Seç",
   "DASHBOARD.BUTTON_PROCESS": "İşlemi Başlat",
 

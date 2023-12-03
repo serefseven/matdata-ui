@@ -24,6 +24,7 @@ export function MenuInner() {
                 <MenuItem to='#' title={intl.formatMessage({id: 'MENU.MATERIAL_TYPES'})} hasBullet={true}/>*/}
             </MenuInnerWithSub>
             <MenuItem title={intl.formatMessage({id: 'MENU.APPLICATIONS'})} to='/applications'/>
+            <MenuItem title={intl.formatMessage({id: 'MENU.FILES'})} to='/files'/>
         </>
     )
 }

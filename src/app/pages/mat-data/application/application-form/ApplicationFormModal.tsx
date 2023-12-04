@@ -143,12 +143,10 @@ const ApplicationFormModal: FC<Props> = (props) => {
                         <div className='fv-row mb-10'>
                             <label
                                 className='form-label'>{intl.formatMessage({id: 'APPLICATION_FORM.TEMPLATE'})}</label>
-
                             <Field
                                 component='select'
                                 name='templateId'
                                 className='form-select form-select-lg form-select-solid'
-
                             >
                                 <option></option>
                                 {
@@ -156,10 +154,28 @@ const ApplicationFormModal: FC<Props> = (props) => {
                                         .map(t => <option key={t.id}
                                                           value={t.id}>{t.name}</option>)
                                 }
-
                             </Field>
                             <div className='text-danger mt-2'>
                                 <ErrorMessage name='templateId'/>
+                            </div>
+                        </div>
+                        <div className='fv-row mb-10'>
+                            <label
+                                className='form-label'>{intl.formatMessage({id: 'APPLICATION_FORM.LOGO'})}</label>
+                            <Field
+                                component='select'
+                                name='logoId'
+                                className='form-select form-select-lg form-select-solid'
+                            >
+                                <option></option>
+                                {
+                                    files
+                                        .map(t => <option key={t.id}
+                                                          value={t.id}>{t.name}</option>)
+                                }
+                            </Field>
+                            <div className='text-danger mt-2'>
+                                <ErrorMessage name='logoId'/>
                             </div>
                         </div>
                         <div className='fv-row mb-10'>

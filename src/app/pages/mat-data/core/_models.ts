@@ -8,6 +8,7 @@ export interface IApplicationDtoApiResponse {
     url: string;
     active: boolean;
     templateId?: number;
+    logoId?: number;
 }
 
 
@@ -19,6 +20,7 @@ export interface IUpsertApplication {
     url: string;
     active?: boolean;
     templateId?: number;
+    logoId?: number;
 
 }
 

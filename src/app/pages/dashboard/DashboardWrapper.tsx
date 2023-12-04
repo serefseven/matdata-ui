@@ -65,7 +65,7 @@ const DashboardPage = () => {
                                             className="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-400px min-h-sm-100 h-100"
                                             style={{
                                                 backgroundSize: '100% 100%',
-                                                backgroundImage: 'url(/media/stock/600x600/img-12.jpg)'
+                                                backgroundImage: 'url('+(a.logoId != undefined? FILE_URL + a.logoId:'/media/stock/600x600/img-12.jpg')+')'
                                             }}>
                                         </div>
                                     </div>

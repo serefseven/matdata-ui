@@ -23,7 +23,7 @@ const ApplicationFormModal: FC<Props> = (props) => {
         description: Yup.string(),
         acceptedExtensions: Yup.string().required(messageRequired),
         url: Yup.string().required(messageRequired),
-        templateId: Yup.number(),
+        //templateId: Yup.number(),
         active: Yup.boolean(),
     });
 

@@ -53,6 +53,7 @@
   "USER_FORM.STATUS": "Durum",
   "USER_FORM.STATUS.ACTIVE": "Aktif",
   "USER_FORM.STATUS.DEACTIVE": "Pasif",
+  "USER_FORM.SEND_EMAIL": "E-mail Gönder",
   "USER_FORM.SUBMIT": "Kaydet",
   "USER_FORM.DISCARD": "Vazgeç",
 

@@ -53,6 +53,7 @@
   "USER_FORM.STATUS": "Status",
   "USER_FORM.STATUS.ACTIVE": "Active",
   "USER_FORM.STATUS.DEACTIVE": "Inactive",
+  "USER_FORM.SEND_EMAIL": "Send e-mail",
   "USER_FORM.SUBMIT": "Save",
   "USER_FORM.DISCARD": "Discard",
 

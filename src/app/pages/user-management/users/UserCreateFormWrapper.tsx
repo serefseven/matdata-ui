@@ -26,7 +26,8 @@ const UserCreateForm: FC = (props) => {
         userGroupId: Yup.number(),
         passwordSettingType: Yup.number().required(messageRequired).oneOf([0, 1], messageRequired),
         type: Yup.number().required(messageRequired).oneOf([0, 1], messageRequired),
-        status: Yup.string()//.required(messageRequired).oneOf([0, 1], messageRequired),
+        status: Yup.string(), //.required(messageRequired).oneOf([0, 1], messageRequired),
+        sendEmail: Yup.boolean()
     }
 
     const userFormSchemaPassword = {
@@ -44,7 +45,8 @@ const UserCreateForm: FC = (props) => {
         firstName: '',
         lastName: '',
         type: UserType.CLIENT,
-        status: UserStatus.ACTIVE
+        status: UserStatus.ACTIVE,
+        sendEmail: true
 
     })
     const [isSubmitting, setSubmitting] = useState(false);
@@ -71,9 +73,13 @@ const UserCreateForm: FC = (props) => {
     }
     const formOnChange = (e) => {
         if (e.target.name === 'passwordSettingType' && e.target.value === '0') {
+            console.log("1");
+            console.log(e.target.value);
             setChoosePassword(true);
             setUserFormSchema(Yup.object({...userFormSchemaInitial, ...userFormSchemaPassword}));
         } else if (e.target.name === 'passwordSettingType') {
+            console.log("2");
+            console.log(e.target.value);
             setChoosePassword(false);
             setUserFormSchema(Yup.object({...userFormSchemaInitial}));
         }
@@ -255,6 +261,16 @@ const UserCreateForm: FC = (props) => {
                                 <div className='text-danger mt-2'>
                                     <ErrorMessage name='status'/>
                                 </div>
+                            </div>
+
+                            <div className='fv-row mb-10'>
+                                <div className="form-check form-switch form-check-custom form-check-solid">
+                                    <Field name='sendEmail' id="sendEmail" type='checkbox' className='form-check-input'/>
+                                    <label className="form-check-label">
+                                        {intl.formatMessage({id: 'USER_FORM.SEND_EMAIL'})}
+                                    </label>
+                                </div>
+
                             </div>
 
                             <div className='text-center pt-15'>

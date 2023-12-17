@@ -1,4 +1,4 @@
-import {date} from "yup";
+import {bool, date} from "yup";
 
 export interface IUserDtoApiResponse {
     id: number;
@@ -25,6 +25,7 @@ export interface ICreateUser {
     userGroupId?: number;
     type?: UserType;
     status?: UserStatus;
+    sendEmail?: boolean;
 
 }
 export interface IUpdateUser {
